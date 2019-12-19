@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Wish List to the new year</title>
+</h:head>
+
+<h:body>
+    <h3 style="margin-top:0">Put your dreams to the next year</h3>
+
+    <h:form id="form">
+        <p:panelGrid columns="2" layout="grid">
+            <p:inputText id="dream" value="${wishBean.bean.dream}" label="Wish" placeholder="Wish"  />
+            <p:commandButton id="btn" action="#{wishBean.add}" value="Add" update="form"/>
+        </p:panelGrid>
+
+        <p:dataTable id="table" var="wish" value="#{wishBean.wishes}">
+            <p:column headerText="Wish">
+                <h:outputText value="#{wish.dream}" />
+            </p:column>
+            <p:column headerText="Remove">
+                <p:commandButton action="#{wishBean.remove(wish.id)}" value="Remove" update="form"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</h:body>
+</html>
