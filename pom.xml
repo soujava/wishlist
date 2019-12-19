@@ -14,6 +14,8 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <platform.sh.version>2.2.3</platform.sh.version>
         <jakarta.nosql.version>1.0.0-b1</jakarta.nosql.version>
+        <junit.version>5.5.2</junit.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencyManagement>
@@ -57,6 +59,18 @@
             <artifactId>primefaces</artifactId>
             <version>7.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -66,6 +80,11 @@
                 <groupId>io.thorntail</groupId>
                 <artifactId>thorntail-maven-plugin</artifactId>
                 <version>${version.thorntail}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
             </plugin>
         </plugins>
     </build>
