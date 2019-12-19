@@ -15,7 +15,7 @@
 
     <h:form id="form">
         <p:panelGrid columns="2" layout="grid">
-            <p:inputText id="dream" value="${wishBean.bean.dream}" label="Wish" placeholder="Wish"  />
+            <p:inputText id="dream" value="${wishBean.wish}" label="Wish" placeholder="Wish"  />
             <p:commandButton id="btn" action="#{wishBean.add}" value="Add" update="form"/>
         </p:panelGrid>
 
