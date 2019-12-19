@@ -12,4 +12,8 @@ class WishTest {
 
     }
 
+    @Test
+    public void shouldCreateWish2() {
+
+    }
 }
