@@ -16,6 +16,7 @@
         <jakarta.nosql.version>1.0.0-b1</jakarta.nosql.version>
         <junit.version>5.5.2</junit.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <test.containers.version>1.12.0</test.containers.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencyManagement>
@@ -69,6 +70,12 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <version>${test.containers.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
