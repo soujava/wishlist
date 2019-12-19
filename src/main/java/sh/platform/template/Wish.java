@@ -21,16 +21,8 @@ public class Wish {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getDream() {
         return dream;
-    }
-
-    public void setDream(String dream) {
-        this.dream = dream;
     }
 
     @Override
@@ -57,5 +49,12 @@ public class Wish {
                 "id='" + id + '\'' +
                 ", dream='" + dream + '\'' +
                 '}';
+    }
+
+    public static Wish of(String dream) {
+        Objects.requireNonNull(dream, "dream is required");
+        Wish wish = new Wish();
+        wish.dream = dream;
+        return wish;
     }
 }

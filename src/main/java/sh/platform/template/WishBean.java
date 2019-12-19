@@ -10,20 +10,19 @@ public class WishBean {
     @Inject
     private WishRepository repository;
 
-    private Wish bean = new Wish();
+    private String wish = "";
 
-
-    public Wish getBean() {
-        return bean;
+    public String getWish() {
+        return wish;
     }
 
-    public void setBean(Wish bean) {
-        this.bean = bean;
+    public void setWish(String wish) {
+        this.wish = wish;
     }
 
     public void add() {
-        repository.save(bean);
-        this.bean = new Wish();
+        repository.save(Wish.of(wish));
+        this.wish = "";
     }
 
     public List<Wish> getWishes() {
