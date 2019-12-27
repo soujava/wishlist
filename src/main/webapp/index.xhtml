@@ -11,20 +11,21 @@
 </h:head>
 
 <h:body>
-    <h3 style="margin-top:0">Put your dreams to the next year</h3>
 
     <h:form id="form">
-        <p:panelGrid columns="2" layout="grid">
-            <p:inputText id="dream" value="${wishBean.wish}" label="Wish" placeholder="Wish"  />
-            <p:commandButton id="btn" action="#{wishBean.add}" value="Add" update="form"/>
-        </p:panelGrid>
 
+        <p:panel header="Put your dreams to the next year">
+            <p:panelGrid columns="2" layout="grid" cellpadding="4">
+                <p:inputText id="dream" value="${wishBean.wish}" label="Wish" placeholder="Wish"/>
+                <p:commandButton id="btn" action="#{wishBean.add}" update="form" icon="ui-icon-disk"/>
+            </p:panelGrid>
+        </p:panel>
         <p:dataTable id="table" var="wish" value="#{wishBean.wishes}">
             <p:column headerText="Wish">
-                <h:outputText value="#{wish.dream}" />
+                <h:outputText value="#{wish.dream}"/>
             </p:column>
-            <p:column headerText="Remove">
-                <p:commandButton action="#{wishBean.remove(wish.id)}" value="Remove" update="form"/>
+            <p:column>
+                <p:commandButton action="#{wishBean.remove(wish.id)}" icon="ui-icon-trash" update="form"/>
             </p:column>
         </p:dataTable>
     </h:form>
