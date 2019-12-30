@@ -1,7 +1,5 @@
 # Wish List
 
-This project provides a starter kit for Thorntail Eclipse MicroProfile projects hosted on Platform.sh.
-
 ## Services
 
 * Java 11
