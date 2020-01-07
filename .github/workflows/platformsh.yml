@@ -1,0 +1,17 @@
+name: Platform CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Platform.sh
+      uses: actions/setup-java@v1
+    - name: Deploy with Platform.sh
+      run: curl -H "Content-Type: application/json" -X GET https://platform.sh/
