@@ -14,7 +14,7 @@
 #    https://docs.platform.sh/administration/integrations/github.html
 #    https://github.com/settings/tokens/new
 #
-# 4. Store an IAM user access key in GitHub Actions secrets named `PLATFORM_AUTHENTICATION`,`PLATFORM_AUTHENTICATION` and `GITHUB_TOKEN`.
+# 4. Store an IAM user access key in GitHub Actions secrets named `PLATFORM_AUTHENTICATION`,`PLATFORM_PROJECT_ID` and `GITHUB_TOKEN`.
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
@@ -32,7 +32,7 @@ jobs:
       env:
        HEADER: 'Content-Type: application/json'
        PLATFORM_AUTHENTICATION: ${{ secrets.PLATFORM_AUTHENTICATION }}
-       PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_AUTHENTICATION }}
+       PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
        AUTHENCICATION:  "Authorization: Bearer $PLATFORM_AUTHENTICATION"
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        GITHUB_REPOSITORY: ${{ github.repository}}
