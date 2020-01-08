@@ -14,9 +14,15 @@
 #    https://docs.platform.sh/administration/integrations/github.html
 #    https://github.com/settings/tokens/new
 #
-# 4. Store an IAM user access key in GitHub Actions secrets named `PLATFORM_AUTHENTICATION`,`PLATFORM_PROJECT_ID` and `GITHUB_TOKEN`.
-#    See the documentation for each action used below for the recommended IAM policies for this IAM user,
-#    and best practices on handling the access key credentials.
+# 4. Store a Platform.sh project ID in GitHub Actions secrets named `PLATFORM_PROJECT_ID`
+#    https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets   
+#
+# 5. Store a Platform.sh API tokens in GitHub Actions secrets named `PLATFORM_AUTHENTICATION`
+#    https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets   
+#
+# 6. Store a Github API token in GitHub Actions secrets named `TOKEN_GITHUB`
+#    https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets   
+#
 
 name: Deploy on Platform.sh
 
