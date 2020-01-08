@@ -34,7 +34,7 @@ jobs:
        PLATFORM_AUTHENTICATION: ${{ secrets.PLATFORM_AUTHENTICATION }}
        PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
        AUTHENCICATION:  "Authorization: Bearer $PLATFORM_AUTHENTICATION"
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
        GITHUB_REPOSITORY: ${{ github.repository}}
        HOST: https://api.platform.sh//projects/$PLATFORM_PROJECT_ID/integrations
        BODY: '{"type": "GithubIntegrationCreateInput", "token": $GITHUB_TOKEN, "repository": $GITHUB_REPOSITORY}'
