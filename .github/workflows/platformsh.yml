@@ -2,7 +2,7 @@
 #
 # To use this workflow, you will need to complete the following set-up steps:
 #
-# 1. Create an ECR repository to store your images.
+# 1. Create a Platform.sh project.
 #    For example: `aws ecr create-repository --repository-name my-ecr-repo --region us-east-2`.
 #    Replace the value of `ECR_REPOSITORY` in the workflow below with your repository's name.
 #    Replace the value of `aws-region` in the workflow below with your repository's region.
@@ -18,7 +18,7 @@
 #    Replace the value of `container-name` in the workflow below with the name of the container
 #    in the `containerDefinitions` section of the task definition.
 #
-# 4. Store an IAM user access key in GitHub Actions secrets named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+# 4. Store an IAM user access key in GitHub Actions secrets named `PLATFORM_AUTHENTICATION`,`PLATFORM_AUTHENTICATION` and `GITHUB_TOKEN`.
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
@@ -36,10 +36,10 @@ jobs:
       env:
        HEADER: 'Content-Type: application/json'
        PLATFORM_AUTHENTICATION: ${{ secrets.PLATFORM_AUTHENTICATION }}
-       PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
+       PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_AUTHENTICATION }}
        AUTHENCICATION:  "Authorization: Bearer $PLATFORM_AUTHENTICATION"
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        GITHUB_REPOSITORY: ${{ github.repository}}
-       HOST: https://api.platform.sh/projects
-       BODY: '{"attributes": null,"title": "string","description": null,"region": "string","default_domain": null}'
+       HOST: https://api.platform.sh//projects/$PLATFORM_PROJECT_ID/integrations
+       BODY: '{"type": "GithubIntegrationCreateInput", "token": $GITHUB_TOKEN, "repository": $GITHUB_REPOSITORY}'
       run: curl -d $BODY -H $HEADER -H AUTHENCICATION -X GET $HOST
