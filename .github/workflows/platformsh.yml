@@ -43,4 +43,9 @@ jobs:
        GITHUB_REPOSITORY: ${{ github.repository}}
        HOST: https://api.platform.sh/projects/$PLATFORM_PROJECT_ID/integrations
        BODY: '{"type": "GithubIntegrationCreateInput", "token": $GITHUB_TOKEN, "repository": $GITHUB_REPOSITORY}'
-      run: curl -d $BODY -H $HEADER -H AUTHENCICATION -X GET $HOST
+      run: |
+        echo $BODY
+        echo $HEADER
+        echo $AUTHENCICATION
+        echo $HOST
+        curl -d $BODY -H $HEADER -H $AUTHENCICATION -X GET $HOST
