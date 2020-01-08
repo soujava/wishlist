@@ -36,6 +36,6 @@ jobs:
        AUTHENCICATION:  "Authorization: Bearer $PLATFORM_AUTHENTICATION"
        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
        GITHUB_REPOSITORY: ${{ github.repository}}
-       HOST: https://api.platform.sh//projects/$PLATFORM_PROJECT_ID/integrations
+       HOST: https://api.platform.sh/projects/$PLATFORM_PROJECT_ID/integrations
        BODY: '{"type": "GithubIntegrationCreateInput", "token": $GITHUB_TOKEN, "repository": $GITHUB_REPOSITORY}'
       run: curl -d $BODY -H $HEADER -H AUTHENCICATION -X GET $HOST
