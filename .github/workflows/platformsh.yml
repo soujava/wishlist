@@ -40,9 +40,9 @@ jobs:
        PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       run: |
-        export AUTHENCICATION="Authorization: Bearer $PLATFORM_AUTHENTICATION"
+        export AUTHENCICATION="Authorization: Bearer ${PLATFORM_AUTHENTICATION}"
         export HOST=https://api.platform.sh/projects/$PLATFORM_PROJECT_ID/integrations
-        export BODY='{"type": "GithubIntegrationCreateInput", "token": $GITHUB_TOKEN, "repository": $GITHUB_REPOSITORY}'
+        export BODY='{"type": "GithubIntegrationCreateInput", "token": ${GITHUB_TOKEN}, "repository": ${GITHUB_REPOSITORY}}'
         echo $BODY
         echo $HEADER
         echo $AUTHENCICATION
