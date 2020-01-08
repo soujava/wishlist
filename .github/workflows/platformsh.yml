@@ -47,4 +47,4 @@ jobs:
         echo $HEADER
         echo $AUTHENCICATION
         echo $HOST
-        curl -d $BODY -H $HEADER -H $AUTHENCICATION -X GET $HOST
+        curl -d $BODY -H $HEADER -H $AUTHENCICATION -X POST $HOST
